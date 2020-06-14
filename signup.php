@@ -8,8 +8,9 @@ $pass=$_POST['pass'];
 $confirm_pass=$_POST['pass1'];
 $email=$_POST['email'];
 $mobile=$_POST['mobile'];
-if(preg_match("/^\d{10}$/",$mobile)){
-	if($name !='' && $pass !=''&& $confirm_pass !=''&& $email !=''){
+
+if($name !='' && $pass !=''&& $confirm_pass !=''&& $email !=''){
+	if(preg_match("/^\d{10}$/",$mobile)){
 		if($pass==$confirm_pass){
 			$_SESSION["user"]=$name;
 			$mysqli=NEW MySQLi('localhost','id14078026_sai','root123','id14078026_mydb');
@@ -32,10 +33,10 @@ if(preg_match("/^\d{10}$/",$mobile)){
 		}
 	}
 	else {
-		$msg="***please fill all fields***";
+		$msg="***mobile number should contain 10digits***";
 	}
 }else{
-	$msg="***mobile number should contain 10digits***";
+	$msg="***please fill all fields***";
 }
 } 
 ?>
